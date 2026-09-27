@@ -22,18 +22,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4
-
-      - name: Install Android SDK packages
-        run: |
-          yes | sdkmanager --licenses || true
-          sdkmanager "platform-tools"
-          sdkmanager "platforms;android-36"
-          sdkmanager "build-tools;36.0.0"
-
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: "9.4.1"
+          packages: "platform-tools"
 
       - name: Build Debug APK
         run: |
